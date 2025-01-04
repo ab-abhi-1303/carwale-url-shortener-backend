@@ -9,20 +9,20 @@ dotenv.config();
 
 const numCPUs = os.cpus().length;
 
-if (cluster.isMaster) {
-  console.log(`Master process running on PID: ${process.pid}`);
+// if (cluster.isMaster) {
+//   console.log(`Master process running on PID: ${process.pid}`);
 
-  // Fork workers based on the number of CPUs
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
+//   // Fork workers based on the number of CPUs
+//   for (let i = 0; i < numCPUs; i++) {
+//     cluster.fork();
+//   }
 
-  // Handle worker exits
-  cluster.on("exit", (worker, code, signal) => {
-    console.log(`Worker ${worker.process.pid} exited. Starting a new one...`);
-    cluster.fork();
-  });
-} else {
+//   // Handle worker exits
+//   cluster.on("exit", (worker, code, signal) => {
+//     console.log(`Worker ${worker.process.pid} exited. Starting a new one...`);
+//     cluster.fork();
+//   });
+// } else {
   const app = express();
   app.use(express.json());
 
@@ -37,4 +37,4 @@ if (cluster.isMaster) {
   app.listen(PORT, () => {
     console.log(`Worker ${process.pid} started on port ${PORT}`);
   });
-}
+// }
