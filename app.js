@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const urlRoutes = require("./routes/urlRoutes");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -23,7 +24,11 @@ const numCPUs = os.cpus().length;
 //     cluster.fork();
 //   });
 // } else {
+
+
   const app = express();
+  app.use(cors({origin: "*"}));
+  app.options("*", cors());
   app.use(express.json());
 
   mongoose
