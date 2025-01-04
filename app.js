@@ -17,7 +17,7 @@ function connectDB() {
     .catch((err) => console.error(err));
 }
 
-if (cluster.isMaster) {
+if (cluster.isMaster && process.env.NODE_ENV !== 'production') {
   console.log(`Master process running on PID: ${process.pid}`);
 
   // Fork workers based on the number of CPUs
