@@ -5,10 +5,15 @@
  */
 function validateUrl(url) {
   try {
-    const parsedUrl = new URL(url); // Node.js URL constructor
-    return ["http:", "https:"].includes(parsedUrl.protocol); // Ensure valid protocols
+    const parsedUrl = new URL(url);
+
+    const isValidProtocol = ["http:", "https:"].includes(parsedUrl.protocol);
+
+    const hasWWW = parsedUrl.hostname.startsWith("www.");
+
+    return isValidProtocol && (hasWWW || true); // 'hasWWW || true' allows non-www URLs
   } catch (err) {
-    return false;
+    return false; // Invalid URL
   }
 }
 
