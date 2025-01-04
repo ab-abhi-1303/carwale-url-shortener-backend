@@ -1,0 +1,3662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        :root {
+            --colors-foreground: #fafbfc;
+            --colors-background: #131415;
+            --colors-gray-100: #1D1B22;
+            --colors-gray-200: #2C2F35;
+            --colors-gray-300: #41454E;
+            --colors-gray-400: #565C67;
+            --colors-gray-500: #6B7280;
+            --colors-gray-600: #8D94A0;
+            --colors-gray-700: #B1B6BE;
+            --colors-gray-800: #D6D8DC;
+            --colors-gray-900: #f4f4f6;
+            --colors-pink-100: #51007C;
+            --colors-pink-200: #7200AF;
+            --colors-pink-300: #9400E2;
+            --colors-pink-400: #AE16FF;
+            --colors-pink-500: #C049FF;
+            --colors-pink-600: #CE72FF;
+            --colors-pink-700: #DC9BFF;
+            --colors-pink-800: #EAC3FF;
+            --colors-pink-900: #F8ECFF;
+            --colors-yellow-100: #232000;
+            --colors-yellow-200: #605700;
+            --colors-yellow-300: #9E8E00;
+            --colors-yellow-400: #DBC500;
+            --colors-yellow-500: #FFE819;
+            --colors-yellow-600: #FFED4C;
+            --colors-yellow-700: #FFF27F;
+            --colors-yellow-800: #FFF7B2;
+            --colors-yellow-900: #FFFCE5;
+            --colors-red-100: #190607;
+            --colors-red-200: #430F12;
+            --colors-red-300: #6C191E;
+            --colors-red-400: #962229;
+            --colors-red-500: #BF2C35;
+            --colors-red-600: #D54952;
+            --colors-red-700: #DF7279;
+            --colors-red-800: #E89CA1;
+            --colors-red-900: #F2C5C8;
+            --colors-green-100: #0F2819;
+            --colors-green-200: #1D4D31;
+            --colors-green-300: #2B7249;
+            --colors-green-400: #389860;
+            --colors-green-500: #48BB78;
+            --colors-green-600: #6DC993;
+            --colors-green-700: #92D7AF;
+            --colors-green-800: #B8E4CA;
+            --colors-green-900: #DDF2E6;
+            --colors-blue-100: #002994;
+            --colors-blue-200: #0037C7;
+            --colors-blue-300: #0046FA;
+            --colors-blue-400: #2E68FF;
+            --colors-blue-500: #618DFF;
+            --colors-blue-600: #85A7FF;
+            --colors-blue-700: #A8C1FF;
+            --colors-blue-800: #CCDAFF;
+            --colors-blue-900: #F0F4FF;
+        }
+
+        .light {
+            --colors-foreground: #181622;
+            --colors-background: #ffffff;
+            --colors-gray-100: #f4f4f6;
+            --colors-gray-200: #D6D8DC;
+            --colors-gray-300: #B1B6BE;
+            --colors-gray-400: #8D94A0;
+            --colors-gray-500: #6B7280;
+            --colors-gray-600: #565C67;
+            --colors-gray-700: #41454E;
+            --colors-gray-800: #2C2F35;
+            --colors-gray-900: #1D1B22;
+            --colors-pink-100: #F8ECFF;
+            --colors-pink-200: #EAC3FF;
+            --colors-pink-300: #DC9BFF;
+            --colors-pink-400: #CE72FF;
+            --colors-pink-500: #C049FF;
+            --colors-pink-600: #AE16FF;
+            --colors-pink-700: #9400E2;
+            --colors-pink-800: #7200AF;
+            --colors-pink-900: #51007C;
+            --colors-yellow-100: #FFFCE5;
+            --colors-yellow-200: #FFF7B2;
+            --colors-yellow-300: #FFF27F;
+            --colors-yellow-400: #FFED4C;
+            --colors-yellow-500: #FFE819;
+            --colors-yellow-600: #DBC500;
+            --colors-yellow-700: #9E8E00;
+            --colors-yellow-800: #605700;
+            --colors-yellow-900: #232000;
+            --colors-red-100: #F2C5C8;
+            --colors-red-200: #E89CA1;
+            --colors-red-300: #DF7279;
+            --colors-red-400: #D54952;
+            --colors-red-500: #BF2C35;
+            --colors-red-600: #962229;
+            --colors-red-700: #6C191E;
+            --colors-red-800: #430F12;
+            --colors-red-900: #190607;
+            --colors-green-100: #DDF2E6;
+            --colors-green-200: #B8E4CA;
+            --colors-green-300: #92D7AF;
+            --colors-green-400: #6DC993;
+            --colors-green-500: #48BB78;
+            --colors-green-600: #389860;
+            --colors-green-700: #2B7249;
+            --colors-green-800: #1D4D31;
+            --colors-green-900: #0F2819;
+            --colors-blue-100: #F0F4FF;
+            --colors-blue-200: #CCDAFF;
+            --colors-blue-300: #A8C1FF;
+            --colors-blue-400: #85A7FF;
+            --colors-blue-500: #618DFF;
+            --colors-blue-600: #2E68FF;
+            --colors-blue-700: #0046FA;
+            --colors-blue-800: #0037C7;
+            --colors-blue-900: #002994;
+        }
+
+        .dark {
+            --colors-foreground: #fafbfc;
+            --colors-background: #131415;
+            --colors-gray-100: #1D1B22;
+            --colors-gray-200: #2C2F35;
+            --colors-gray-300: #41454E;
+            --colors-gray-400: #565C67;
+            --colors-gray-500: #6B7280;
+            --colors-gray-600: #8D94A0;
+            --colors-gray-700: #B1B6BE;
+            --colors-gray-800: #D6D8DC;
+            --colors-gray-900: #f4f4f6;
+            --colors-pink-100: #51007C;
+            --colors-pink-200: #7200AF;
+            --colors-pink-300: #9400E2;
+            --colors-pink-400: #AE16FF;
+            --colors-pink-500: #C049FF;
+            --colors-pink-600: #CE72FF;
+            --colors-pink-700: #DC9BFF;
+            --colors-pink-800: #EAC3FF;
+            --colors-pink-900: #F8ECFF;
+            --colors-yellow-100: #232000;
+            --colors-yellow-200: #605700;
+            --colors-yellow-300: #9E8E00;
+            --colors-yellow-400: #DBC500;
+            --colors-yellow-500: #FFE819;
+            --colors-yellow-600: #FFED4C;
+            --colors-yellow-700: #FFF27F;
+            --colors-yellow-800: #FFF7B2;
+            --colors-yellow-900: #FFFCE5;
+            --colors-red-100: #190607;
+            --colors-red-200: #430F12;
+            --colors-red-300: #6C191E;
+            --colors-red-400: #962229;
+            --colors-red-500: #BF2C35;
+            --colors-red-600: #D54952;
+            --colors-red-700: #DF7279;
+            --colors-red-800: #E89CA1;
+            --colors-red-900: #F2C5C8;
+            --colors-green-100: #0F2819;
+            --colors-green-200: #1D4D31;
+            --colors-green-300: #2B7249;
+            --colors-green-400: #389860;
+            --colors-green-500: #48BB78;
+            --colors-green-600: #6DC993;
+            --colors-green-700: #92D7AF;
+            --colors-green-800: #B8E4CA;
+            --colors-green-900: #DDF2E6;
+            --colors-blue-100: #002994;
+            --colors-blue-200: #0037C7;
+            --colors-blue-300: #0046FA;
+            --colors-blue-400: #2E68FF;
+            --colors-blue-500: #618DFF;
+            --colors-blue-600: #85A7FF;
+            --colors-blue-700: #A8C1FF;
+            --colors-blue-800: #CCDAFF;
+            --colors-blue-900: #F0F4FF;
+        }
+    </style>
+    <meta name="description" content="Documentation for Railway" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@Railway" />
+    <meta property="og:description" content="Documentation for Railway" />
+    <meta property="og:url" content="https://docs.railway.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Railway Docs" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Build from a Dockerfile | Railway Docs" />
+    <meta property="og:image"
+        content="https://og.railway.com/api/image?fileType=png&amp;layoutName=Docs&amp;Theme=Dark&amp;URL=&amp;Page=Build%20from%20a%20Dockerfile" />
+    <title>Build from a Dockerfile | Railway Docs</title>
+    <meta name="description" content="Documentation for Railway" />
+    <meta name="next-head-count" content="15" />
+    <script async="" src="https://tally.so/widgets/embed.js"></script>
+    <link rel="preload" href="/_next/static/css/94dfb622ed056005.css" as="style" />
+    <link rel="stylesheet" href="/_next/static/css/94dfb622ed056005.css" data-n-g="" /><noscript
+        data-n-css=""></noscript>
+    <script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script>
+    <script src="/_next/static/chunks/webpack-1635cb8763993154.js" defer=""></script>
+    <script src="/_next/static/chunks/framework-2c16ac744b6cdea6.js" defer=""></script>
+    <script src="/_next/static/chunks/main-9cfb38678fbef8c0.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/_app-da131c84ae5ea616.js" defer=""></script>
+    <script src="/_next/static/chunks/fec483df-fa8088932354168d.js" defer=""></script>
+    <script src="/_next/static/chunks/183-7913810f8dba48a6.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/%5B...slug%5D-ad194815c5ce8771.js" defer=""></script>
+    <script src="/_next/static/bOTbrtFVoRMrDtuYyyWLo/_buildManifest.js" defer=""></script>
+    <script src="/_next/static/bOTbrtFVoRMrDtuYyyWLo/_ssgManifest.js" defer=""></script>
+    <style data-styled="" data-styled-version="5.3.6">
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--colors-background);
+            line-height: 1.625;
+            color: var(--colors-foreground);
+            font-family: Inter, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        }
+
+        /*!sc*/
+        html::selection {
+            background-color: var(--colors-pink-200);
+        }
+
+        /*!sc*/
+        .dark html::selection {
+            background-color: var(--colors-pink-900);
+        }
+
+        /*!sc*/
+        html::-moz-selection {
+            background-color: var(--colors-pink-200);
+        }
+
+        /*!sc*/
+        .dark html::-moz-selection {
+            background-color: var(--colors-pink-900);
+        }
+
+        /*!sc*/
+        .sidebar ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /*!sc*/
+        .sidebar * {
+            -webkit-scrollbar-width: none;
+            -moz-scrollbar-width: none;
+            -ms-scrollbar-width: none;
+            scrollbar-width: none;
+        }
+
+        /*!sc*/
+        * {
+            box-sizing: border-box;
+        }
+
+        /*!sc*/
+        .docs-content td {
+            vertical-align: middle;
+        }
+
+        /*!sc*/
+        td {
+            white-space: break-spaces;
+        }
+
+        /*!sc*/
+        data-styled.g2[id="sc-global-dILBNC1"] {
+            content: "sc-global-dILBNC1,"
+        }
+
+        /*!sc*/
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: var(--colors-gray-200);
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-pan-y: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-pinch-zoom: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ordinal: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-slashed-zero: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-figure: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-spacing: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-fraction: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-ring-inset: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(147 197 253 / 0.5);
+            --tw-blur: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-brightness: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-contrast: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-grayscale: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-hue-rotate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-invert: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-saturate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-sepia: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-drop-shadow: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-blur: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-brightness: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-contrast: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-grayscale: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-hue-rotate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-invert: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-opacity: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-saturate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-sepia: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+        }
+
+        /*!sc*/
+        ::before,
+        ::after {
+            --tw-content: '';
+        }
+
+        /*!sc*/
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: Inter, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+            font-feature-settings: normal;
+        }
+
+        /*!sc*/
+        body {
+            margin: 0;
+            line-height: inherit;
+        }
+
+        /*!sc*/
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px;
+        }
+
+        /*!sc*/
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted;
+        }
+
+        /*!sc*/
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        /*!sc*/
+        a {
+            color: inherit;
+            -webkit-text-decoration: inherit;
+            text-decoration: inherit;
+        }
+
+        /*!sc*/
+        b,
+        strong {
+            font-weight: bolder;
+        }
+
+        /*!sc*/
+        code,
+        kbd,
+        samp,
+        pre {
+            font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+            font-size: 1em;
+        }
+
+        /*!sc*/
+        small {
+            font-size: 80%;
+        }
+
+        /*!sc*/
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        /*!sc*/
+        sub {
+            bottom: -0.25em;
+        }
+
+        /*!sc*/
+        sup {
+            top: -0.5em;
+        }
+
+        /*!sc*/
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse;
+        }
+
+        /*!sc*/
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*!sc*/
+        button,
+        select {
+            text-transform: none;
+        }
+
+        /*!sc*/
+        button,
+        [type='button'],
+        [type='reset'],
+        [type='submit'] {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none;
+        }
+
+        /*!sc*/
+        :-moz-focusring {
+            outline: auto;
+        }
+
+        /*!sc*/
+        :-moz-ui-invalid {
+            box-shadow: none;
+        }
+
+        /*!sc*/
+        progress {
+            vertical-align: baseline;
+        }
+
+        /*!sc*/
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto;
+        }
+
+        /*!sc*/
+        [type='search'] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px;
+        }
+
+        /*!sc*/
+        ::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        /*!sc*/
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit;
+        }
+
+        /*!sc*/
+        summary {
+            display: list-item;
+        }
+
+        /*!sc*/
+        blockquote,
+        dl,
+        dd,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        figure,
+        p,
+        pre {
+            margin: 0;
+        }
+
+        /*!sc*/
+        fieldset {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*!sc*/
+        legend {
+            padding: 0;
+        }
+
+        /*!sc*/
+        ol,
+        ul,
+        menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*!sc*/
+        textarea {
+            resize: vertical;
+        }
+
+        /*!sc*/
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            opacity: 1;
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+            opacity: 1;
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            opacity: 1;
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        button,
+        [role="button"] {
+            cursor: pointer;
+        }
+
+        /*!sc*/
+        :disabled {
+            cursor: default;
+        }
+
+        /*!sc*/
+        img,
+        svg,
+        video,
+        canvas,
+        audio,
+        iframe,
+        embed,
+        object {
+            display: block;
+            vertical-align: middle;
+        }
+
+        /*!sc*/
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /*!sc*/
+        [hidden] {
+            display: none;
+        }
+
+        /*!sc*/
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-pan-y: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-pinch-zoom: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ordinal: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-slashed-zero: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-figure: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-spacing: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-numeric-fraction: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-ring-inset: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(147 197 253 / 0.5);
+            --tw-blur: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-brightness: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-contrast: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-grayscale: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-hue-rotate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-invert: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-saturate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-sepia: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-drop-shadow: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-blur: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-brightness: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-contrast: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-grayscale: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-hue-rotate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-invert: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-opacity: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-saturate: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+            --tw-backdrop-sepia: var(--tw-empty,
+                    /*!*/
+                    /*!*/
+                );
+        }
+
+        /*!sc*/
+        data-styled.g3[id="sc-global-kWedTd1"] {
+            content: "sc-global-kWedTd1,"
+        }
+
+        /*!sc*/
+        .dFgCbS {
+            width: 2.5rem;
+            fill: currentColor;
+        }
+
+        /*!sc*/
+        data-styled.g30[id="Logo___StyledSvg-sc-teruw2-0"] {
+            content: "dFgCbS,"
+        }
+
+        /*!sc*/
+        .kCCFg {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+        }
+
+        /*!sc*/
+        .kCCFg [data-radix-scroll-area-position]::-webkit-scrollbar {
+            display: none;
+        }
+
+        /*!sc*/
+        data-styled.g31[id="ScrollArea__StyledScrollArea-sc-mrp1dv-0"] {
+            content: "kCCFg,"
+        }
+
+        /*!sc*/
+        .cCRjAS {
+            position: relative;
+            max-height: 100%;
+            max-width: 100%;
+            z-index: 1;
+        }
+
+        /*!sc*/
+        data-styled.g32[id="ScrollArea__StyledViewport-sc-mrp1dv-1"] {
+            content: "cCRjAS,"
+        }
+
+        /*!sc*/
+        .erZRFQ {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            width: 0.25rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition-property: opacity;
+            transition-property: opacity;
+            -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-transition-duration: 150ms;
+            transition-duration: 150ms;
+            z-index: 1;
+        }
+
+        /*!sc*/
+        data-styled.g33[id="ScrollArea__StyledScrollbarY-sc-mrp1dv-2"] {
+            content: "erZRFQ,"
+        }
+
+        /*!sc*/
+        .fpsGSr {
+            height: 1rem;
+            width: 1rem;
+        }
+
+        /*!sc*/
+        data-styled.g37[id="Arrow___StyledSvg2-sc-9i8h0d-1"] {
+            content: "fpsGSr,"
+        }
+
+        /*!sc*/
+        .hqsSZe {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-700);
+            display: block;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /*!sc*/
+        .hqsSZe:hover {
+            background-color: var(--colors-gray-100);
+            color: var(--colors-foreground);
+        }
+
+        /*!sc*/
+        .hqsSZe:focus {
+            background-color: var(--colors-pink-100);
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        /*!sc*/
+        data-styled.g42[id="SidebarItem___StyledLink2-sc-n96ru1-4"] {
+            content: "hqsSZe,"
+        }
+
+        /*!sc*/
+        .ecYYFy {
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            color: var(--colors-gray-700);
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        /*!sc*/
+        .ecYYFy:hover {
+            cursor: pointer;
+        }
+
+        /*!sc*/
+        data-styled.g43[id="SidebarItem___StyledSpan2-sc-n96ru1-5"] {
+            content: "ecYYFy,"
+        }
+
+        /*!sc*/
+        .eIryMc {
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-700);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        /*!sc*/
+        .eIryMc:hover {
+            color: var(--colors-foreground);
+        }
+
+        /*!sc*/
+        data-styled.g44[id="SidebarItem___StyledLink3-sc-n96ru1-6"] {
+            content: "eIryMc,"
+        }
+
+        /*!sc*/
+        .gFTLbU {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            border-right-width: 2px;
+            border-color: transparent;
+        }
+
+        /*!sc*/
+        .gFTLbU:hover {
+            background-color: var(--colors-gray-100);
+        }
+
+        /*!sc*/
+        .gFTLbU:focus {
+            background-color: var(--colors-pink-100);
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        /*!sc*/
+        data-styled.g45[id="SidebarItem___StyledDiv-sc-n96ru1-7"] {
+            content: "gFTLbU,"
+        }
+
+        /*!sc*/
+        .dUmYdc {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-right: 0.75rem;
+            padding-left: 0.5rem;
+            color: var(--colors-gray-700);
+        }
+
+        /*!sc*/
+        .dUmYdc:hover {
+            border-top-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 4px;
+            border-color: var(--colors-gray-200);
+            background-color: var(--colors-gray-200);
+        }
+
+        /*!sc*/
+        .dUmYdc:hover svg {
+            color: var(--colors-foreground);
+        }
+
+        /*!sc*/
+        data-styled.g46[id="SidebarItem___StyledButton-sc-n96ru1-8"] {
+            content: "dUmYdc,"
+        }
+
+        /*!sc*/
+        .bMvYPw {
+            pointer-events: none;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.5;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .bMvYPw {
+                opacity: 1;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g59[id="pages___StyledDiv-sc-13voyep-12"] {
+            content: "bMvYPw,"
+        }
+
+        /*!sc*/
+        .blsdjm {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            max-width: none;
+            --tw-scale-x: -1;
+            -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        /*!sc*/
+        data-styled.g60[id="pages___StyledImg-sc-13voyep-13"] {
+            content: "blsdjm,"
+        }
+
+        /*!sc*/
+        .kFitkK {
+            color: currentColor;
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            min-height: 18px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        .kFitkK svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*!sc*/
+        data-styled.g89[id="Icon__Container-sc-1ew5mun-0"] {
+            content: "kFitkK,"
+        }
+
+        /*!sc*/
+        .gQYYnR {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            cursor: pointer;
+            border-radius: 0.25rem;
+            border-width: 1px;
+            border-color: var(--colors-gray-200);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            text-align: left;
+            color: var(--colors-gray-300);
+        }
+
+        /*!sc*/
+        .gQYYnR> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .gQYYnR {
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+            }
+        }
+
+        /*!sc*/
+        .gQYYnR:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .gQYYnR:hover {
+                border-color: var(--colors-pink-300);
+            }
+        }
+
+        /*!sc*/
+        data-styled.g93[id="OpenModalButton___StyledButton-sc-kkuiiu-0"] {
+            content: "gQYYnR,"
+        }
+
+        /*!sc*/
+        .gLhDsr {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        .gLhDsr> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        data-styled.g94[id="OpenModalButton___StyledDiv-sc-kkuiiu-1"] {
+            content: "gLhDsr,"
+        }
+
+        /*!sc*/
+        .bWNyvF {
+            height: 1rem;
+            width: 1rem;
+        }
+
+        /*!sc*/
+        data-styled.g95[id="OpenModalButton___StyledSearchIcon-sc-kkuiiu-2"] {
+            content: "bWNyvF,"
+        }
+
+        /*!sc*/
+        .Cxfwb {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+
+        /*!sc*/
+        data-styled.g96[id="OpenModalButton___StyledSpan-sc-kkuiiu-3"] {
+            content: "Cxfwb,"
+        }
+
+        /*!sc*/
+        .eBngvL {
+            display: none;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-300);
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .eBngvL {
+                display: block;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g97[id="OpenModalButton___StyledDiv2-sc-kkuiiu-4"] {
+            content: "eBngvL,"
+        }
+
+        /*!sc*/
+        .mWsAh {
+            display: none;
+            background-color: var(--colors-background);
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .mWsAh {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0px;
+                display: block;
+                height: 100vh;
+                min-width: 290px;
+                overflow: hidden;
+            }
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .mWsAh {
+                border-right-width: 1px;
+                border-color: var(--colors-gray-200);
+            }
+        }
+
+        /*!sc*/
+        data-styled.g98[id="Sidebar___StyledDiv-sc-1w9v62x-0"] {
+            content: "mWsAh,"
+        }
+
+        /*!sc*/
+        .CpvsN {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+            background-color: var(--colors-background);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        /*!sc*/
+        data-styled.g99[id="Sidebar___StyledDiv2-sc-1w9v62x-1"] {
+            content: "CpvsN,"
+        }
+
+        /*!sc*/
+        .yUycH {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        /*!sc*/
+        data-styled.g100[id="Sidebar___StyledDiv3-sc-1w9v62x-2"] {
+            content: "yUycH,"
+        }
+
+        /*!sc*/
+        .eHiwFV {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        data-styled.g101[id="Sidebar___StyledLink-sc-1w9v62x-3"] {
+            content: "eHiwFV,"
+        }
+
+        /*!sc*/
+        .hchJKa {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        data-styled.g102[id="Sidebar___StyledDiv4-sc-1w9v62x-4"] {
+            content: "hchJKa,"
+        }
+
+        /*!sc*/
+        .dOCLSL {
+            margin-right: 1rem;
+            height: 2rem;
+            width: 2rem;
+        }
+
+        /*!sc*/
+        data-styled.g103[id="Sidebar___StyledLogo-sc-1w9v62x-5"] {
+            content: "dOCLSL,"
+        }
+
+        /*!sc*/
+        .dwWDmP {
+            font-weight: 700;
+        }
+
+        /*!sc*/
+        data-styled.g104[id="Sidebar___StyledSpan-sc-1w9v62x-6"] {
+            content: "dwWDmP,"
+        }
+
+        /*!sc*/
+        .iVItZO {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /*!sc*/
+        data-styled.g105[id="Sidebar___StyledDiv5-sc-1w9v62x-7"] {
+            content: "iVItZO,"
+        }
+
+        /*!sc*/
+        .bUsux {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            color: var(--colors-foreground);
+        }
+
+        /*!sc*/
+        data-styled.g106[id="Sidebar___StyledH-sc-1w9v62x-8"] {
+            content: "bUsux,"
+        }
+
+        /*!sc*/
+        .ksWYzA {
+            margin-bottom: 2rem;
+        }
+
+        /*!sc*/
+        data-styled.g107[id="Sidebar___StyledUl-sc-1w9v62x-9"] {
+            content: "ksWYzA,"
+        }
+
+        /*!sc*/
+        .knNXwv {
+            display: none;
+            width: 100%;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .knNXwv {
+                display: none;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g108[id="Sidebar___StyledDiv6-sc-1w9v62x-10"] {
+            content: "knNXwv,"
+        }
+
+        /*!sc*/
+        .iQvdKv {
+            display: none;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .iQvdKv {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g109[id="Nav___StyledHeader-sc-e5yvd5-0"] {
+            content: "iQvdKv,"
+        }
+
+        /*!sc*/
+        .dDGhsL {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        .dDGhsL> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        .dDGhsL:hover {
+            color: var(--colors-pink-500);
+        }
+
+        /*!sc*/
+        data-styled.g110[id="Nav___StyledLink-sc-e5yvd5-1"] {
+            content: "dDGhsL,"
+        }
+
+        /*!sc*/
+        .kGFvAF {
+            height: 1rem;
+            width: 1rem;
+        }
+
+        /*!sc*/
+        data-styled.g111[id="Nav___StyledHome-sc-e5yvd5-2"] {
+            content: "kGFvAF,"
+        }
+
+        /*!sc*/
+        .gmCRYH {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+        /*!sc*/
+        .gmCRYH> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .gmCRYH {
+                display: none;
+            }
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .gmCRYH {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g112[id="Nav___StyledHeader2-sc-e5yvd5-3"] {
+            content: "gmCRYH,"
+        }
+
+        /*!sc*/
+        .irkjVz {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+
+        /*!sc*/
+        data-styled.g113[id="Nav___StyledLogo-sc-e5yvd5-4"] {
+            content: "irkjVz,"
+        }
+
+        /*!sc*/
+        .gKontq {
+            display: block;
+            width: 100%;
+        }
+
+        /*!sc*/
+        data-styled.g114[id="Nav___StyledDiv-sc-e5yvd5-5"] {
+            content: "gKontq,"
+        }
+
+        /*!sc*/
+        .PNmPX {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        .PNmPX> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .PNmPX> :not([hidden])~ :not([hidden]) {
+                --tw-space-x-reverse: 0;
+                margin-right: calc(1rem * var(--tw-space-x-reverse));
+                margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+            }
+        }
+
+        /*!sc*/
+        data-styled.g115[id="Nav___StyledDiv2-sc-e5yvd5-6"] {
+            content: "PNmPX,"
+        }
+
+        /*!sc*/
+        .eGxKJK {
+            height: 1.5rem;
+            width: 1.5rem;
+            cursor: pointer;
+        }
+
+        /*!sc*/
+        .eGxKJK:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .eGxKJK {
+                height: 1rem;
+                width: 1rem;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g116[id="Nav___StyledButton-sc-e5yvd5-7"] {
+            content: "eGxKJK,"
+        }
+
+        /*!sc*/
+        .iKUlyt {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*!sc*/
+        data-styled.g117[id="Nav___StyledDiv3-sc-e5yvd5-8"] {
+            content: "iKUlyt,"
+        }
+
+        /*!sc*/
+        .eFvwqN {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /*!sc*/
+        data-styled.g123[id="Page___StyledDiv-sc-28ik2w-0"] {
+            content: "eFvwqN,"
+        }
+
+        /*!sc*/
+        .cJRtTv {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            max-width: 100vw;
+            -webkit-flex: 1 1 0%;
+            -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /*!sc*/
+        data-styled.g124[id="Page___StyledDiv2-sc-28ik2w-1"] {
+            content: "cJRtTv,"
+        }
+
+        /*!sc*/
+        .eEMXil {
+            margin-left: auto;
+            margin-right: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            max-width: 64rem;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .eEMXil {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                padding-bottom: 6rem;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g125[id="Page___StyledMain-sc-28ik2w-2"] {
+            content: "eEMXil,"
+        }
+
+        /*!sc*/
+        .fqfNod {
+            position: relative;
+        }
+
+        /*!sc*/
+        data-styled.g130[id="CodeBlock___StyledDiv-sc-1hs73mo-0"] {
+            content: "fqfNod,"
+        }
+
+        /*!sc*/
+        .cKzGIo {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            margin-right: 0.25rem;
+            margin-top: 0.25rem;
+            display: none;
+            color: var(--colors-gray-300);
+        }
+
+        /*!sc*/
+        .cKzGIo:hover {
+            color: var(--colors-gray-400);
+        }
+
+        /*!sc*/
+        .group:hover .CodeBlock___StyledDiv2-sc-1hs73mo-1 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        /*!sc*/
+        data-styled.g131[id="CodeBlock___StyledDiv2-sc-1hs73mo-1"] {
+            content: "cKzGIo,"
+        }
+
+        /*!sc*/
+        .dxgehi {
+            border-radius: 0.375rem;
+            padding: 0.25rem;
+        }
+
+        /*!sc*/
+        .dxgehi:hover {
+            background-color: var(--colors-gray-200);
+        }
+
+        /*!sc*/
+        .dxgehi:focus {
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+        }
+
+        /*!sc*/
+        data-styled.g133[id="CodeBlock___StyledButton-sc-1hs73mo-3"] {
+            content: "dxgehi,"
+        }
+
+        /*!sc*/
+        .gqRqkK {
+            display: none;
+            width: 250px;
+            min-width: 200px;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding-top: 2rem;
+            padding-left: 3rem;
+            padding-right: 0px;
+            padding-bottom: 1.5rem;
+        }
+
+        /*!sc*/
+        @media (min-width:1024px) {
+            .gqRqkK {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+            }
+        }
+
+        /*!sc*/
+        @media (min-width:1280px) {
+            .gqRqkK {
+                padding-left: 4rem;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g145[id="PageNav___StyledDiv-sc-1jokhl7-0"] {
+            content: "gqRqkK,"
+        }
+
+        /*!sc*/
+        .kycRDk {
+            max-width: 100%;
+        }
+
+        /*!sc*/
+        data-styled.g151[id="DocsLayout___StyledDiv-sc-1igxyhl-0"] {
+            content: "kycRDk,"
+        }
+
+        /*!sc*/
+        .eGQUBV {
+            color: var(--colors-foreground);
+            max-width: 65ch;
+            --tw-prose-body: #374151;
+            --tw-prose-headings: #111827;
+            --tw-prose-lead: #4b5563;
+            --tw-prose-links: #111827;
+            --tw-prose-bold: #111827;
+            --tw-prose-counters: #6b7280;
+            --tw-prose-bullets: #d1d5db;
+            --tw-prose-hr: #e5e7eb;
+            --tw-prose-quotes: #111827;
+            --tw-prose-quote-borders: #e5e7eb;
+            --tw-prose-captions: #6b7280;
+            --tw-prose-code: #111827;
+            --tw-prose-pre-code: #e5e7eb;
+            --tw-prose-pre-bg: #1f2937;
+            --tw-prose-th-borders: #d1d5db;
+            --tw-prose-td-borders: #e5e7eb;
+            --tw-prose-invert-body: #d1d5db;
+            --tw-prose-invert-headings: #fff;
+            --tw-prose-invert-lead: #9ca3af;
+            --tw-prose-invert-links: #fff;
+            --tw-prose-invert-bold: #fff;
+            --tw-prose-invert-counters: #9ca3af;
+            --tw-prose-invert-bullets: #4b5563;
+            --tw-prose-invert-hr: #374151;
+            --tw-prose-invert-quotes: #f3f4f6;
+            --tw-prose-invert-quote-borders: #374151;
+            --tw-prose-invert-captions: #9ca3af;
+            --tw-prose-invert-code: #fff;
+            --tw-prose-invert-pre-code: #d1d5db;
+            --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+            --tw-prose-invert-th-borders: #4b5563;
+            --tw-prose-invert-td-borders: #374151;
+            font-size: 1rem;
+            line-height: 1.75;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(p):not(:where([class~="not-prose"] *)) {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where([class~="lead"]):not(:where([class~="not-prose"] *)) {
+            color: var(--tw-prose-lead);
+            font-size: 1.25em;
+            line-height: 1.6;
+            margin-top: 1.2em;
+            margin-bottom: 1.2em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(a):not(:where([class~="not-prose"] *)) {
+            color: currentColor;
+            -webkit-text-decoration: underline;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(a):not(:where([class~="not-prose"] *)):hover {
+            color: var(--colors-pink-500);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(strong):not(:where([class~="not-prose"] *)) {
+            color: var(--tw-prose-bold);
+            font-weight: 600;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(a strong):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(blockquote strong):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead th strong):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol):not(:where([class~="not-prose"] *)) {
+            list-style-type: decimal;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="A"]):not(:where([class~="not-prose"] *)) {
+            list-style-type: upper-alpha;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="a"]):not(:where([class~="not-prose"] *)) {
+            list-style-type: lower-alpha;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="A" s]):not(:where([class~="not-prose"] *)) {
+            list-style-type: upper-alpha;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="a" s]):not(:where([class~="not-prose"] *)) {
+            list-style-type: lower-alpha;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="I"]):not(:where([class~="not-prose"] *)) {
+            list-style-type: upper-roman;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="i"]):not(:where([class~="not-prose"] *)) {
+            list-style-type: lower-roman;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="I" s]):not(:where([class~="not-prose"] *)) {
+            list-style-type: upper-roman;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="i" s]):not(:where([class~="not-prose"] *)) {
+            list-style-type: lower-roman;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol[type="1"]):not(:where([class~="not-prose"] *)) {
+            list-style-type: decimal;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ul):not(:where([class~="not-prose"] *)) {
+            list-style-type: disc;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol > li):not(:where([class~="not-prose"] *))::marker {
+            font-weight: 400;
+            color: var(--tw-prose-counters);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ul > li):not(:where([class~="not-prose"] *))::marker {
+            color: var(--tw-prose-bullets);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(hr):not(:where([class~="not-prose"] *)) {
+            border-color: var(--tw-prose-hr);
+            border-top-width: 1px;
+            margin-top: 3em;
+            margin-bottom: 3em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(blockquote):not(:where([class~="not-prose"] *)) {
+            font-weight: 500;
+            font-style: italic;
+            color: var(--tw-prose-quotes);
+            border-left-width: 0.25rem;
+            border-left-color: var(--tw-prose-quote-borders);
+            quotes: "\201C" "\201D" "\2018" "\2019";
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
+            padding-left: 1em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before {
+            content: open-quote;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after {
+            content: close-quote;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h1):not(:where([class~="not-prose"] *)) {
+            color: var(--colors-foreground);
+            font-weight: 700;
+            font-size: 2.25em;
+            margin-top: 0;
+            margin-bottom: 0.8888889em;
+            line-height: 1.1111111;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h1 strong):not(:where([class~="not-prose"] *)) {
+            font-weight: 900;
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h2):not(:where([class~="not-prose"] *)) {
+            color: var(--colors-foreground);
+            font-weight: 700;
+            font-size: 1.5em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            line-height: 1.3333333;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h2 strong):not(:where([class~="not-prose"] *)) {
+            font-weight: 800;
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h3):not(:where([class~="not-prose"] *)) {
+            color: var(--colors-foreground);
+            font-weight: 600;
+            font-size: 1.25em;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+            line-height: 1.6;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h3 strong):not(:where([class~="not-prose"] *)) {
+            font-weight: 700;
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h4):not(:where([class~="not-prose"] *)) {
+            color: var(--colors-foreground);
+            font-weight: 600;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            line-height: 1.5;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h4 strong):not(:where([class~="not-prose"] *)) {
+            font-weight: 700;
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(img):not(:where([class~="not-prose"] *)) {
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border-radius: 10px;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(figure > *):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(figcaption):not(:where([class~="not-prose"] *)) {
+            color: var(--tw-prose-captions);
+            font-size: 0.875em;
+            line-height: 1.4285714;
+            margin-top: 0.8571429em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(code):not(:where([class~="not-prose"] *)) {
+            color: var(--colors-pink-500);
+            font-weight: 400;
+            font-size: 0.875em;
+            background: transparent;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(code):not(:where([class~="not-prose"] *))::before {
+            content: "`";
+        }
+
+        /*!sc*/
+        .eGQUBV :where(code):not(:where([class~="not-prose"] *))::after {
+            content: "`";
+        }
+
+        /*!sc*/
+        .eGQUBV :where(a code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h1 code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h2 code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+            font-size: 0.875em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h3 code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+            font-size: 0.9em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h4 code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(blockquote code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead th code):not(:where([class~="not-prose"] *)) {
+            color: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(pre):not(:where([class~="not-prose"] *)) {
+            color: var(--tw-prose-pre-code);
+            background-color: var(--tw-prose-pre-bg);
+            overflow-x: auto;
+            font-weight: 400;
+            font-size: 0.875em;
+            line-height: 1.7142857;
+            margin-top: 1.7142857em;
+            margin-bottom: 1.7142857em;
+            border-radius: 0.375rem;
+            padding-top: 0.8571429em;
+            padding-right: 1.1428571em;
+            padding-bottom: 0.8571429em;
+            padding-left: 1.1428571em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(pre):not(:where([class~="not-prose"] *)) code::after {
+            display: none;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(pre code):not(:where([class~="not-prose"] *)) {
+            background-color: transparent;
+            border-width: 0;
+            border-radius: 0;
+            padding: 0;
+            font-weight: inherit;
+            color: inherit;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: inherit;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(pre code):not(:where([class~="not-prose"] *))::before {
+            content: none;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(pre code):not(:where([class~="not-prose"] *))::after {
+            content: none;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(table):not(:where([class~="not-prose"] *)) {
+            width: 100%;
+            table-layout: auto;
+            text-align: left;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            font-size: 0.875em;
+            line-height: 1.7142857;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead):not(:where([class~="not-prose"] *)) {
+            border-bottom-width: 1px;
+            border-bottom-color: var(--tw-prose-th-borders);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead th):not(:where([class~="not-prose"] *)) {
+            color: var(--tw-prose-headings);
+            font-weight: 600;
+            vertical-align: bottom;
+            padding-right: 0.5714286em;
+            padding-bottom: 0.5714286em;
+            padding-left: 0.5714286em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody tr):not(:where([class~="not-prose"] *)) {
+            border-bottom-width: 1px;
+            border-bottom-color: var(--tw-prose-td-borders);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody tr:last-child):not(:where([class~="not-prose"] *)) {
+            border-bottom-width: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody td):not(:where([class~="not-prose"] *)) {
+            vertical-align: baseline;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tfoot):not(:where([class~="not-prose"] *)) {
+            border-top-width: 1px;
+            border-top-color: var(--tw-prose-th-borders);
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tfoot td):not(:where([class~="not-prose"] *)) {
+            vertical-align: top;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(video):not(:where([class~="not-prose"] *)) {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(figure):not(:where([class~="not-prose"] *)) {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(li):not(:where([class~="not-prose"] *)) {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ol > li):not(:where([class~="not-prose"] *)) {
+            padding-left: 0.375em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ul > li):not(:where([class~="not-prose"] *)) {
+            padding-left: 0.375em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > ul > li p):not(:where([class~="not-prose"] *)) {
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > ul > li > *:first-child):not(:where([class~="not-prose"] *)) {
+            margin-top: 1.25em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > ul > li > *:last-child):not(:where([class~="not-prose"] *)) {
+            margin-bottom: 1.25em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > ol > li > *:first-child):not(:where([class~="not-prose"] *)) {
+            margin-top: 1.25em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > ol > li > *:last-child):not(:where([class~="not-prose"] *)) {
+            margin-bottom: 1.25em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"] *)) {
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(hr + *):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h2 + *):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h3 + *):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(h4 + *):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead th:first-child):not(:where([class~="not-prose"] *)) {
+            padding-left: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(thead th:last-child):not(:where([class~="not-prose"] *)) {
+            padding-right: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody td, tfoot td):not(:where([class~="not-prose"] *)) {
+            padding-top: 0.5714286em;
+            padding-right: 0.5714286em;
+            padding-bottom: 0.5714286em;
+            padding-left: 0.5714286em;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody td:first-child, tfoot td:first-child):not(:where([class~="not-prose"] *)) {
+            padding-left: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(tbody td:last-child, tfoot td:last-child):not(:where([class~="not-prose"] *)) {
+            padding-right: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > :first-child):not(:where([class~="not-prose"] *)) {
+            margin-top: 0;
+        }
+
+        /*!sc*/
+        .eGQUBV :where(.prose > :last-child):not(:where([class~="not-prose"] *)) {
+            margin-bottom: 0;
+        }
+
+        /*!sc*/
+        .dark .DocsLayout___StyledDiv2-sc-1igxyhl-1 {
+            --tw-prose-body: var(--tw-prose-invert-body);
+            --tw-prose-headings: var(--tw-prose-invert-headings);
+            --tw-prose-lead: var(--tw-prose-invert-lead);
+            --tw-prose-links: var(--tw-prose-invert-links);
+            --tw-prose-bold: var(--tw-prose-invert-bold);
+            --tw-prose-counters: var(--tw-prose-invert-counters);
+            --tw-prose-bullets: var(--tw-prose-invert-bullets);
+            --tw-prose-hr: var(--tw-prose-invert-hr);
+            --tw-prose-quotes: var(--tw-prose-invert-quotes);
+            --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
+            --tw-prose-captions: var(--tw-prose-invert-captions);
+            --tw-prose-code: var(--tw-prose-invert-code);
+            --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
+            --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
+            --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
+            --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
+        }
+
+        /*!sc*/
+        data-styled.g152[id="DocsLayout___StyledDiv2-sc-1igxyhl-1"] {
+            content: "eGQUBV,"
+        }
+
+        /*!sc*/
+        .jkafqJ {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        /*!sc*/
+        data-styled.g153[id="DocsLayout___StyledHr-sc-1igxyhl-2"] {
+            content: "jkafqJ,"
+        }
+
+        /*!sc*/
+        .gVOskf {
+            margin-bottom: 2rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        /*!sc*/
+        .gVOskf> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        /*!sc*/
+        @media (min-width:768px) {
+            .gVOskf {
+                margin-bottom: 4rem;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g154[id="DocsLayout___StyledDiv3-sc-1igxyhl-3"] {
+            content: "gVOskf,"
+        }
+
+        /*!sc*/
+        .lcSwAM:hover {
+            color: var(--colors-pink-500);
+        }
+
+        /*!sc*/
+        data-styled.g155[id="DocsLayout___StyledLink-sc-1igxyhl-4"] {
+            content: "lcSwAM,"
+        }
+
+        /*!sc*/
+        .duOqOV {
+            max-width: 100%;
+        }
+
+        /*!sc*/
+        data-styled.g156[id="DocsLayout___StyledDiv4-sc-1igxyhl-5"] {
+            content: "duOqOV,"
+        }
+
+        /*!sc*/
+        .cuVgdt {
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-600);
+        }
+
+        /*!sc*/
+        data-styled.g157[id="DocsLayout___StyledDiv5-sc-1igxyhl-6"] {
+            content: "cuVgdt,"
+        }
+
+        /*!sc*/
+        .kAxncK {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 500;
+        }
+
+        /*!sc*/
+        data-styled.g158[id="DocsLayout___StyledDiv6-sc-1igxyhl-7"] {
+            content: "kAxncK,"
+        }
+
+        /*!sc*/
+        .bvvTHS:hover {
+            color: var(--colors-pink-500);
+        }
+
+        /*!sc*/
+        data-styled.g159[id="DocsLayout___StyledLink2-sc-1igxyhl-8"] {
+            content: "bvvTHS,"
+        }
+
+        /*!sc*/
+        .kOLwso {
+            text-align: right;
+        }
+
+        /*!sc*/
+        data-styled.g160[id="DocsLayout___StyledDiv7-sc-1igxyhl-9"] {
+            content: "kOLwso,"
+        }
+
+        /*!sc*/
+        .faZSED {
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-600);
+        }
+
+        /*!sc*/
+        data-styled.g161[id="DocsLayout___StyledDiv8-sc-1igxyhl-10"] {
+            content: "faZSED,"
+        }
+
+        /*!sc*/
+        .lnWPEC {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 500;
+        }
+
+        /*!sc*/
+        data-styled.g162[id="DocsLayout___StyledDiv9-sc-1igxyhl-11"] {
+            content: "lnWPEC,"
+        }
+
+        /*!sc*/
+        .hIwlyz {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: var(--colors-gray-500);
+            -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+        }
+
+        /*!sc*/
+        .hIwlyz:hover {
+            color: var(--colors-pink-500);
+        }
+
+        /*!sc*/
+        data-styled.g163[id="DocsLayout___StyledLink3-sc-1igxyhl-12"] {
+            content: "hIwlyz,"
+        }
+
+        /*!sc*/
+        .hblVNu {
+            white-space: nowrap;
+            border-radius: 0.25rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+        }
+
+        /*!sc*/
+        .hblVNu::before {
+            --tw-content: '';
+            content: var(--tw-content);
+        }
+
+        /*!sc*/
+        .hblVNu::after {
+            --tw-content: '';
+            content: var(--tw-content);
+        }
+
+        /*!sc*/
+        data-styled.g164[id="InlineCode___StyledCode-sc-tsbvnr-0"] {
+            content: "hblVNu,"
+        }
+
+        /*!sc*/
+        .ccDVEh {
+            -webkit-text-decoration: none;
+            text-decoration: none;
+            position: absolute;
+            width: 3rem;
+            height: 2rem;
+            display: none;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            left: -2rem;
+        }
+
+        /*!sc*/
+        .ccDVEh:hover {
+            -webkit-text-decoration: underline;
+            text-decoration: underline;
+        }
+
+        /*!sc*/
+        data-styled.g165[id="Header__StyledLinkIcon-sc-flzp2g-0"] {
+            content: "ccDVEh,"
+        }
+
+        /*!sc*/
+        .jRuExH {
+            -webkit-text-decoration: none;
+            text-decoration: none;
+            position: absolute;
+            font-weight: bold;
+        }
+
+        /*!sc*/
+        .jRuExH:hover {
+            -webkit-text-decoration: underline;
+            text-decoration: underline;
+        }
+
+        /*!sc*/
+        data-styled.g166[id="Header__StyledLinkHeading-sc-flzp2g-1"] {
+            content: "jRuExH,"
+        }
+
+        /*!sc*/
+        .jShQiQ {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            padding: 1.5rem 0 0;
+            margin-bottom: 2rem;
+        }
+
+        /*!sc*/
+        .jShQiQ:hover .Header__StyledLinkIcon-sc-flzp2g-0 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        /*!sc*/
+        @media (max-width:1300px) {
+            .jShQiQ:hover .Header__StyledLinkIcon-sc-flzp2g-0 {
+                display: none;
+            }
+        }
+
+        /*!sc*/
+        data-styled.g167[id="Header__BaseStyledHeading-sc-flzp2g-2"] {
+            content: "jShQiQ,"
+        }
+
+        /*!sc*/
+    </style>
+</head>
+
+<body>
+    <div id="__next">
+        <script>!function () { try { var d = document.documentElement, c = d.classList; c.remove('light', 'dark'); var e = localStorage.getItem('theme'); if ('system' === e || (!e && false)) { var t = '(prefers-color-scheme: dark)', m = window.matchMedia(t); if (m.media !== t || m.matches) { d.style.colorScheme = 'dark'; c.add('dark') } else { d.style.colorScheme = 'light'; c.add('light') } } else if (e) { c.add(e || '') } else { c.add('light') } if (e === 'light' || e === 'dark' || !e) d.style.colorScheme = e || 'light' } catch (e) { } }()</script>
+        <div data-overlay-container="true">
+            <div class="Page___StyledDiv-sc-28ik2w-0 eFvwqN">
+                <div class="Sidebar___StyledDiv-sc-1w9v62x-0 mWsAh sidebar">
+                    <div dir="ltr" class="ScrollArea__StyledScrollArea-sc-mrp1dv-0 kCCFg"
+                        style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px">
+                        <style>
+                            [data-radix-scroll-area-viewport] {
+                                scrollbar-width: none;
+                                -ms-overflow-style: none;
+                                -webkit-overflow-scrolling: touch;
+                            }
+
+                            [data-radix-scroll-area-viewport]::-webkit-scrollbar {
+                                display: none
+                            }
+                        </style>
+                        <div data-radix-scroll-area-viewport="" class="ScrollArea__StyledViewport-sc-mrp1dv-1 cCRjAS"
+                            style="overflow-x:hidden;overflow-y:hidden">
+                            <div style="min-width:100%;display:table">
+                                <div class="Sidebar___StyledDiv2-sc-1w9v62x-1 CpvsN">
+                                    <div class="Sidebar___StyledDiv3-sc-1w9v62x-2 yUycH"><a
+                                            class="Sidebar___StyledLink-sc-1w9v62x-3 eHiwFV" href="/">
+                                            <div class="Sidebar___StyledDiv4-sc-1w9v62x-4 hchJKa"><svg
+                                                    data-v-423bf9ae="" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 60 60"
+                                                    class="Logo___StyledSvg-sc-teruw2-0 dFgCbS Sidebar___StyledLogo-sc-1w9v62x-5 dOCLSL">
+                                                    <g data-v-423bf9ae="" id="6f639fe5-02e1-4640-a1fb-f4b22b64e5ef"
+                                                        transform="matrix(0.5999641134746578,0,0,0.5999641134746578,-437.5538206497148,-266.68705118956507)"
+                                                        stroke="none">
+                                                        <path
+                                                            d="M729.872 487.327a50.86 50.86 0 0 0-.464 5.033h75.879c-.265-.518-.621-.985-.98-1.442-12.972-16.769-19.95-15.315-29.932-15.741-3.328-.137-5.585-.192-18.832-.192-7.09 0-14.798.018-22.304.038.737-1.746 1.6-3.419 2.525-5.061-2.885 5.106-4.865 10.771-5.805 16.789l.891-4.397c.007-.031.018-.063.024-.094h38.883v5.067h-39.885zM805.885 497.432h-76.438c.08 1.352.206 2.686.388 4.002h70.571c3.146 0 4.907-1.786 5.479-4.002zM733.851 515.257a52.226 52.226 0 0 1-1.98-4.997c6.608 19.89 25.328 34.251 47.433 34.251 20.205 0 37.566-12.007 45.452-29.254h-90.905zM729.38 492.915c-.018.531-.08 1.055-.08 1.589 0 .538.063 1.059.08 1.59v-3.179zM824.77 515.229z">
+                                                        </path>
+                                                        <path
+                                                            d="M779.303 444.505c-18.682 0-34.939 10.265-43.524 25.439 6.709-.014 19.775-.022 19.775-.022h.003v-.005c15.444 0 16.018.069 19.035.195l1.868.069c6.507.217 14.505.916 20.798 5.68 3.416 2.584 8.348 8.287 11.288 12.35 2.718 3.758 3.5 8.078 1.652 12.217-1.701 3.804-5.361 6.073-9.793 6.073H730.85l-.884-4.201c.426 2.707 1.037 5.344 1.879 7.886h94.914a49.863 49.863 0 0 0 2.546-15.682c.001-27.611-22.386-49.999-50.002-49.999z">
+                                                        </path>
+                                                    </g>
+                                                </svg> <span
+                                                    class="Sidebar___StyledSpan-sc-1w9v62x-6 dwWDmP">Docs</span></div>
+                                        </a></div>
+                                </div>
+                                <div class="Sidebar___StyledDiv5-sc-1w9v62x-7 iVItZO"><button
+                                        class="OpenModalButton___StyledButton-sc-kkuiiu-0 gQYYnR">
+                                        <div class="OpenModalButton___StyledDiv-sc-kkuiiu-1 gLhDsr"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="OpenModalButton___StyledSearchIcon-sc-kkuiiu-2 bWNyvF">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            </svg><span
+                                                class="OpenModalButton___StyledSpan-sc-kkuiiu-3 Cxfwb">Search</span>
+                                        </div>
+                                        <div class="OpenModalButton___StyledDiv2-sc-kkuiiu-4 eBngvL">⌘K</div>
+                                    </button></div>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux"></h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/">Home</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/quick-start">Quick Start</a></li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Overview</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/overview/about-railway">About Railway</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/overview/the-basics">The Basics</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/overview/best-practices">Best Practices</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/overview/advanced-concepts">Advanced Concepts</a></li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux current-section">Guides</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/foundations">Foundations</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/languages-frameworks">Languages &amp;
+                                                Frameworks</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/networking">Networking</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/builds">Builds</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/deployments">Deployments</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/databases">Databases</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/monitoring">Monitoring</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/templates">Templates</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/guides/public-api">Public API</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/guides/config-as-code">Config as Code</a></li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Tutorials</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/tutorials/getting-started">Getting Started</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Self Hosted
+                                                Applications</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Technical
+                                                Tutorials</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Database Backup
+                                                Tutorials</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">GitHub
+                                                Tutorials</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Reference</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                                class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                                href="/reference/errors">Errors</a><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Develop</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Deploy</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Diagnose</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Operations</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/reference/cli-api">CLI API</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/reference/public-api">Public API</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/reference/templates">Templates</a></li>
+                                    <li>
+                                        <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                                class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Pricing</span><button
+                                                class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg
+                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></button></div>
+                                    </li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/reference/production-readiness-checklist">Production Readiness
+                                            Checklist</a></li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Maturity</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/philosophy">Philosophy</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/use-cases">Use Cases</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/compliance">Compliance</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/incident-management">Incident Management</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/compare-to-heroku">Compare to Heroku</a></li>
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/maturity/compare-to-render">Compare to Render</a></li>
+                                </ul>
+                                <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Community</h5>
+                                <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                                    <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                            href="/community/the-conductor-program">The Conductor Program</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Page___StyledDiv2-sc-28ik2w-1 cJRtTv">
+                    <div class="pages___StyledDiv-sc-13voyep-12 bMvYPw"><img src="/images/VectorGrid.svg"
+                            class="pages___StyledImg-sc-13voyep-13 blsdjm" /></div>
+                    <header class="Nav___StyledHeader-sc-e5yvd5-0 iQvdKv">
+                        <ul>
+                            <li><a href="https://railway.com/login" target="_blank" rel="noopener"
+                                    class="Nav___StyledLink-sc-e5yvd5-1 dDGhsL"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="Nav___StyledHome-sc-e5yvd5-2 kGFvAF">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg><span>Go to Railway</span></a></li>
+                        </ul>
+                    </header>
+                    <header class="Nav___StyledHeader2-sc-e5yvd5-3 gmCRYH"><a href="/"><svg data-v-423bf9ae=""
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"
+                                class="Logo___StyledSvg-sc-teruw2-0 dFgCbS Nav___StyledLogo-sc-e5yvd5-4 irkjVz">
+                                <g data-v-423bf9ae="" id="6f639fe5-02e1-4640-a1fb-f4b22b64e5ef"
+                                    transform="matrix(0.5999641134746578,0,0,0.5999641134746578,-437.5538206497148,-266.68705118956507)"
+                                    stroke="none">
+                                    <path
+                                        d="M729.872 487.327a50.86 50.86 0 0 0-.464 5.033h75.879c-.265-.518-.621-.985-.98-1.442-12.972-16.769-19.95-15.315-29.932-15.741-3.328-.137-5.585-.192-18.832-.192-7.09 0-14.798.018-22.304.038.737-1.746 1.6-3.419 2.525-5.061-2.885 5.106-4.865 10.771-5.805 16.789l.891-4.397c.007-.031.018-.063.024-.094h38.883v5.067h-39.885zM805.885 497.432h-76.438c.08 1.352.206 2.686.388 4.002h70.571c3.146 0 4.907-1.786 5.479-4.002zM733.851 515.257a52.226 52.226 0 0 1-1.98-4.997c6.608 19.89 25.328 34.251 47.433 34.251 20.205 0 37.566-12.007 45.452-29.254h-90.905zM729.38 492.915c-.018.531-.08 1.055-.08 1.589 0 .538.063 1.059.08 1.59v-3.179zM824.77 515.229z">
+                                    </path>
+                                    <path
+                                        d="M779.303 444.505c-18.682 0-34.939 10.265-43.524 25.439 6.709-.014 19.775-.022 19.775-.022h.003v-.005c15.444 0 16.018.069 19.035.195l1.868.069c6.507.217 14.505.916 20.798 5.68 3.416 2.584 8.348 8.287 11.288 12.35 2.718 3.758 3.5 8.078 1.652 12.217-1.701 3.804-5.361 6.073-9.793 6.073H730.85l-.884-4.201c.426 2.707 1.037 5.344 1.879 7.886h94.914a49.863 49.863 0 0 0 2.546-15.682c.001-27.611-22.386-49.999-50.002-49.999z">
+                                    </path>
+                                </g>
+                            </svg></a>
+                        <div class="Nav___StyledDiv-sc-e5yvd5-5 gKontq"><button
+                                class="OpenModalButton___StyledButton-sc-kkuiiu-0 gQYYnR">
+                                <div class="OpenModalButton___StyledDiv-sc-kkuiiu-1 gLhDsr"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="OpenModalButton___StyledSearchIcon-sc-kkuiiu-2 bWNyvF">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg><span class="OpenModalButton___StyledSpan-sc-kkuiiu-3 Cxfwb">Search</span>
+                                </div>
+                                <div class="OpenModalButton___StyledDiv2-sc-kkuiiu-4 eBngvL">⌘K</div>
+                            </button></div>
+                        <div class="Nav___StyledDiv2-sc-e5yvd5-6 PNmPX"><button
+                                class="Nav___StyledButton-sc-e5yvd5-7 eGxKJK"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg></button>
+                            <div class="Nav___StyledDiv3-sc-e5yvd5-8 iKUlyt"></div>
+                        </div>
+                    </header>
+                    <div class="Sidebar___StyledDiv6-sc-1w9v62x-10 knNXwv">
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux"></h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/">Home</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/quick-start">Quick
+                                    Start</a></li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Overview</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/overview/about-railway">About Railway</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/overview/the-basics">The
+                                    Basics</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/overview/best-practices">Best Practices</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/overview/advanced-concepts">Advanced Concepts</a></li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux current-section">Guides</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/foundations">Foundations</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/languages-frameworks">Languages &amp; Frameworks</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/networking">Networking</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/builds">Builds</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/deployments">Deployments</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/databases">Databases</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/monitoring">Monitoring</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/templates">Templates</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/guides/public-api">Public API</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/guides/config-as-code">Config as Code</a></li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Tutorials</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/tutorials/getting-started">Getting Started</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Self Hosted
+                                        Applications</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Technical
+                                        Tutorials</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Database Backup
+                                        Tutorials</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">GitHub
+                                        Tutorials</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Reference</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><a
+                                        class="SidebarItem___StyledLink3-sc-n96ru1-6 eIryMc"
+                                        href="/reference/errors">Errors</a><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Develop</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Deploy</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Diagnose</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Operations</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/reference/cli-api">CLI
+                                    API</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/reference/public-api">Public API</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/reference/templates">Templates</a></li>
+                            <li>
+                                <div class="SidebarItem___StyledDiv-sc-n96ru1-7 gFTLbU"><span
+                                        class="SidebarItem___StyledSpan2-sc-n96ru1-5 ecYYFy">Pricing</span><button
+                                        class="SidebarItem___StyledButton-sc-n96ru1-8 dUmYdc"><svg viewBox="0 0 20 20"
+                                            fill="currentColor" aria-hidden="true"
+                                            class="Arrow___StyledSvg2-sc-9i8h0d-1 fpsGSr">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 001.414 0L13.414 10l-4.707-4.707a1 1 0 00-1.414 1.414L10.586 10l-3.293 3.293a1 1 0 000 1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button></div>
+                            </li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/reference/production-readiness-checklist">Production Readiness Checklist</a>
+                            </li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Maturity</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/maturity/philosophy">Philosophy</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe" href="/maturity/use-cases">Use
+                                    Cases</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/maturity/compliance">Compliance</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/maturity/incident-management">Incident Management</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/maturity/compare-to-heroku">Compare to Heroku</a></li>
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/maturity/compare-to-render">Compare to Render</a></li>
+                        </ul>
+                        <h5 class="Sidebar___StyledH-sc-1w9v62x-8 bUsux">Community</h5>
+                        <ul class="Sidebar___StyledUl-sc-1w9v62x-9 ksWYzA">
+                            <li><a class="SidebarItem___StyledLink2-sc-n96ru1-4 hqsSZe"
+                                    href="/community/the-conductor-program">The Conductor Program</a></li>
+                        </ul>
+                    </div>
+                    <main class="Page___StyledMain-sc-28ik2w-2 eEMXil">
+                        <div class="DocsLayout___StyledDiv-sc-1igxyhl-0 kycRDk">
+                            <div class="DocsLayout___StyledDiv2-sc-1igxyhl-1 eGQUBV">
+                                <div class="docs-content">
+                                    <h1>Build from a Dockerfile</h1>
+                                    <p>We will look for and use a <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">Dockerfile</code> at the
+                                        service&#x27;s root if it exists.</p>
+                                    <p>Railway notifies you when it&#x27;s using the <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">Dockerfile</code> in the
+                                        build process with the following message in the logs:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-shell" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span>
+    </span><span>Using detected Dockerfile</span><span class="token" style="color:hsl(221, 87%, 60%)">!</span><span>
+    </span><span></span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span><span class="token" style="color:hsl(221, 87%, 60%)">==</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <h2 id="custom-dockerfile-path"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH2-sc-flzp2g-3 jShQiQ etSPOG">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Custom Dockerfile
+                                            Path</a></h2>
+                                    <p>By default, we look for a file named <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">Dockerfile</code> in the
+                                        root directory. If you want to use a custom filename or path, you can set a
+                                        variable defining the path.</p>
+                                    <p>In your <a href="/guides/variables#service-variables" class=""
+                                            target="_self">service variables</a>, set a variable named <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">RAILWAY_DOCKERFILE_PATH</code>
+                                        to specify the path to the file.</p>
+                                    <p>For example, if your Dockerfile was called <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">Dockerfile.origin</code>,
+                                        you would specify it like this:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-bash" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token assign-left" style="color:hsl(221, 87%, 60%)">RAILWAY_DOCKERFILE_PATH</span><span class="token" style="color:hsl(221, 87%, 60%)">=</span><span>Dockerfile.origin</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <p>If your Dockerfile is in another directory, specify it like this:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-bash" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token assign-left" style="color:hsl(221, 87%, 60%)">RAILWAY_DOCKERFILE_PATH</span><span class="token" style="color:hsl(221, 87%, 60%)">=</span><span>/build/Dockerfile</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <h3 id="use-config-as-code"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH3-sc-flzp2g-4 jShQiQ doHdfI">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Use Config as Code</a>
+                                    </h3>
+                                    <p>You can also set your custom Dockerfile path using <a
+                                            href="/guides/config-as-code" class="" target="_self">config as code</a>.
+                                    </p>
+                                    <h2 id="using-variables-at-build-time"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH2-sc-flzp2g-3 jShQiQ etSPOG">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Using Variables at
+                                            Build Time</a></h2>
+                                    <p>If you need to use the environment variables that Railway injects at build time,
+                                        which include <a href="/guides/variables#service-variables" class=""
+                                            target="_self">variables that you define</a> and <a
+                                            href="/guides/variables#railway-provided-variables" class=""
+                                            target="_self">Railway-provided variables</a>, you must specify them in the
+                                        Dockerfile using the <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">ARG</code> command.</p>
+                                    <p>For example:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-dockerfile" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(230, 4%, 64%);font-style:italic"># Specify the variable you need</span><span>
+    </span><span></span><span class="token instruction" style="color:hsl(301, 63%, 40%)">ARG</span><span class="token instruction"> RAILWAY_SERVICE_NAME</span><span>
+    </span><span></span><span class="token" style="color:hsl(230, 4%, 64%);font-style:italic"># Use the varible</span><span>
+    </span><span></span><span class="token instruction" style="color:hsl(301, 63%, 40%)">RUN</span><span class="token instruction"> echo </span><span class="token instruction" style="color:hsl(221, 87%, 60%)">$RAILWAY_SERVICE_NAME</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <p>Be sure to declare your environment variables in the stage they are required in:
+                                    </p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-dockerfile" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token instruction" style="color:hsl(301, 63%, 40%)">FROM</span><span class="token instruction"> node</span><span>
+    </span>
+    <span></span><span class="token instruction" style="color:hsl(301, 63%, 40%)">ARG</span><span class="token instruction"> RAILWAY_ENVIRONMENT</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <h2 id="cache-mounts"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH2-sc-flzp2g-3 jShQiQ etSPOG">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Cache Mounts</a></h2>
+                                    <p>Railway supports cache mounts in your Dockerfile in the following format:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-plaintext" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>--mount=type=cache,id=s/&lt;service id&gt;-&lt;target path&gt;,target=&lt;target path&gt;</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <p>Replace <code style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">&lt;service id&gt;</code>
+                                        with the id of the service.</p>
+                                    <h3 id="target-path"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH3-sc-flzp2g-4 jShQiQ doHdfI">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Target Path</a></h3>
+                                    <p>Unsure of what your target path should be? Refer to the <a
+                                            href="https://github.com/railwayapp/nixpacks/tree/main"
+                                            target="_blank">Nixpacks source code</a>. Within the providers directory,
+                                        find the file that aligns with your respective language or runtime, and check
+                                        for the variable that indicates the CACHE_DIR.</p>
+                                    <p><strong>Example</strong></p>
+                                    <p>As an example, within the <a
+                                            href="https://github.com/railwayapp/nixpacks/blob/main/src/providers/python.rs#L24"
+                                            target="_blank">python provider definition</a>, you can see the <code
+                                            style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">PIP_CACHE_DIR</code> is
+                                        <code style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"
+                                            data-colormode="light"
+                                            class="InlineCode___StyledCode-sc-tsbvnr-0 hblVNu">/root/.cache/pip</code>.
+                                    </p>
+                                    <p>So the mount command is specified like this:</p>
+                                    <div class="CodeBlock___StyledDiv-sc-1hs73mo-0 fqfNod group">
+                                        <pre data-colormode="light"
+                                            style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-plaintext" style="background:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>--mount=type=cache,id=s/&lt;service id&gt;-/root/cache/pip,target=/root/.cache/pip</span></code></pre>
+                                        <div class="CodeBlock___StyledDiv2-sc-1hs73mo-1 cKzGIo"><button type="button"
+                                                class="CodeBlock___StyledButton-sc-1hs73mo-3 dxgehi">
+                                                <div aria-hidden="true" class="Icon__Container-sc-1ew5mun-0 kFitkK"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                        </path>
+                                                    </svg></div>
+                                            </button></div>
+                                    </div>
+                                    <h2 id="docker-compose"
+                                        class="Header__BaseStyledHeading-sc-flzp2g-2 Header__StyledHeadingH2-sc-flzp2g-3 jShQiQ etSPOG">
+                                        <a class="Header__StyledLinkIcon-sc-flzp2g-0 ccDVEh"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                </path>
+                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                </path>
+                                            </svg></a><a style="cursor:pointer"
+                                            class="Header__StyledLinkHeading-sc-flzp2g-1 jRuExH">Docker Compose</a></h2>
+                                    <p>Railway doesn&#x27;t support docker compose at the moment.</p>
+                                </div>
+                            </div>
+                            <hr class="DocsLayout___StyledHr-sc-1igxyhl-2 jkafqJ" />
+                            <div class="DocsLayout___StyledDiv3-sc-1igxyhl-3 gVOskf prev-next-buttons"><a
+                                    class="DocsLayout___StyledLink-sc-1igxyhl-4 lcSwAM"
+                                    href="/guides/build-configuration">
+                                    <div class="DocsLayout___StyledDiv4-sc-1igxyhl-5 duOqOV">
+                                        <div class="DocsLayout___StyledDiv5-sc-1igxyhl-6 cuVgdt">Prev</div>
+                                        <div class="DocsLayout___StyledDiv6-sc-1igxyhl-7 kAxncK">Build Configuration
+                                        </div>
+                                    </div>
+                                </a><a class="DocsLayout___StyledLink2-sc-1igxyhl-8 bvvTHS" href="/guides/deployments">
+                                    <div class="DocsLayout___StyledDiv7-sc-1igxyhl-9 kOLwso">
+                                        <div class="DocsLayout___StyledDiv8-sc-1igxyhl-10 faZSED">Next</div>
+                                        <div class="DocsLayout___StyledDiv9-sc-1igxyhl-11 lnWPEC">Deployments</div>
+                                    </div>
+                                </a></div><a
+                                href="https://github.com/railwayapp/docs/edit/main/src/docs/guides/dockerfiles.md"
+                                target="_blank" rel="noopener"
+                                class="DocsLayout___StyledLink3-sc-1igxyhl-12 hIwlyz edit-github-link">Edit this file on
+                                GitHub</a>
+                        </div>
+                        <div class="PageNav___StyledDiv-sc-1jokhl7-0 gqRqkK"></div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="__NEXT_DATA__"
+        type="application/json">{"props":{"pageProps":{"page":{"title":"Build from a Dockerfile","body":{"raw":"\nWe will look for and use a `Dockerfile` at the service's root if it exists.\n\nRailway notifies you when it's using the `Dockerfile` in the build process with the following message in the logs:\n```shell\n==========================\nUsing detected Dockerfile!\n==========================\n```\n\n## Custom Dockerfile Path\n\nBy default, we look for a file named `Dockerfile` in the root directory.  If you want to use a custom filename or path, you can set a variable defining the path.\n\nIn your [service variables](/guides/variables#service-variables), set a variable named `RAILWAY_DOCKERFILE_PATH` to specify the path to the file.\n\nFor example, if your Dockerfile was called `Dockerfile.origin`, you would specify it like this:\n```\nRAILWAY_DOCKERFILE_PATH=Dockerfile.origin\n```\n\nIf your Dockerfile is in another directory, specify it like this:\n\n```\nRAILWAY_DOCKERFILE_PATH=/build/Dockerfile\n```\n\n### Use Config as Code\n\nYou can also set your custom Dockerfile path using [config as code](/guides/config-as-code).\n\n\n## Using Variables at Build Time\n\nIf you need to use the environment variables that Railway injects at build time, which include [variables that you define](/guides/variables#service-variables) and [Railway-provided variables](/guides/variables#railway-provided-variables), you must specify them in the Dockerfile using the `ARG` command.\n\nFor example:\n```dockerfile\n# Specify the variable you need\nARG RAILWAY_SERVICE_NAME\n# Use the varible\nRUN echo $RAILWAY_SERVICE_NAME\n```\n\nBe sure to declare your environment variables in the stage they are required in:\n```dockerfile\nFROM node\n\nARG RAILWAY_ENVIRONMENT\n```\n\n## Cache Mounts\n\nRailway supports cache mounts in your Dockerfile in the following format:\n```plaintext\n--mount=type=cache,id=s/\u003cservice id\u003e-\u003ctarget path\u003e,target=\u003ctarget path\u003e\n```\n\nReplace `\u003cservice id\u003e` with the id of the service.\n\n### Target Path\n\nUnsure of what your target path should be?  Refer to the \u003ca href=\"https://github.com/railwayapp/nixpacks/tree/main\" target=\"_blank\"\u003eNixpacks source code\u003c/a\u003e.  Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.\n\n**Example**\n\nAs an example, within the \u003ca href=\"https://github.com/railwayapp/nixpacks/blob/main/src/providers/python.rs#L24\" target=\"_blank\"\u003epython provider definition\u003c/a\u003e, you can see the `PIP_CACHE_DIR` is `/root/.cache/pip`.\n\nSo the mount command is specified like this:\n\n```plaintext\n--mount=type=cache,id=s/\u003cservice id\u003e-/root/cache/pip,target=/root/.cache/pip\n```\n\n## Docker Compose\n\nRailway doesn't support docker compose at the moment.","code":"var Component=(()=\u003e{var s=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(n,e)=\u003e()=\u003e(e||n((e={exports:{}}).exports,e),e.exports),y=(n,e)=\u003e{for(var a in e)c(n,a,{get:e[a],enumerable:!0})},o=(n,e,a,t)=\u003e{if(e\u0026\u0026typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!m.call(n,r)\u0026\u0026r!==a\u0026\u0026c(n,r,{get:()=\u003ee[r],enumerable:!(t=p(e,r))||t.enumerable});return n};var b=(n,e,a)=\u003e(a=n!=null?s(f(n)):{},o(e||!n||!n.__esModule?c(a,\"default\",{value:n,enumerable:!0}):a,n)),k=n=\u003eo(c({},\"__esModule\",{value:!0}),n);var d=g((A,l)=\u003e{l.exports=_jsx_runtime});var I={};y(I,{default:()=\u003ex,frontmatter:()=\u003ev});var i=b(d()),v={title:\"Build from a Dockerfile\"};function h(n){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",a:\"a\",span:\"span\",h3:\"h3\",strong:\"strong\"},n.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(e.p,{children:[\"We will look for and use a \",(0,i.jsx)(e.code,{children:\"Dockerfile\"}),\" at the service's root if it exists.\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"Railway notifies you when it's using the \",(0,i.jsx)(e.code,{children:\"Dockerfile\"}),\" in the build process with the following message in the logs:\"]}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-shell\",children:`==========================\nUsing detected Dockerfile!\n==========================\n`})}),`\n`,(0,i.jsxs)(e.h2,{id:\"custom-dockerfile-path\",children:[(0,i.jsx)(e.a,{href:\"#custom-dockerfile-path\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Custom Dockerfile Path\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"By default, we look for a file named \",(0,i.jsx)(e.code,{children:\"Dockerfile\"}),\" in the root directory.  If you want to use a custom filename or path, you can set a variable defining the path.\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"In your \",(0,i.jsx)(e.a,{href:\"/guides/variables#service-variables\",children:\"service variables\"}),\", set a variable named \",(0,i.jsx)(e.code,{children:\"RAILWAY_DOCKERFILE_PATH\"}),\" to specify the path to the file.\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"For example, if your Dockerfile was called \",(0,i.jsx)(e.code,{children:\"Dockerfile.origin\"}),\", you would specify it like this:\"]}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{children:`RAILWAY_DOCKERFILE_PATH=Dockerfile.origin\n`})}),`\n`,(0,i.jsx)(e.p,{children:\"If your Dockerfile is in another directory, specify it like this:\"}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{children:`RAILWAY_DOCKERFILE_PATH=/build/Dockerfile\n`})}),`\n`,(0,i.jsxs)(e.h3,{id:\"use-config-as-code\",children:[(0,i.jsx)(e.a,{href:\"#use-config-as-code\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Use Config as Code\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"You can also set your custom Dockerfile path using \",(0,i.jsx)(e.a,{href:\"/guides/config-as-code\",children:\"config as code\"}),\".\"]}),`\n`,(0,i.jsxs)(e.h2,{id:\"using-variables-at-build-time\",children:[(0,i.jsx)(e.a,{href:\"#using-variables-at-build-time\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Using Variables at Build Time\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"If you need to use the environment variables that Railway injects at build time, which include \",(0,i.jsx)(e.a,{href:\"/guides/variables#service-variables\",children:\"variables that you define\"}),\" and \",(0,i.jsx)(e.a,{href:\"/guides/variables#railway-provided-variables\",children:\"Railway-provided variables\"}),\", you must specify them in the Dockerfile using the \",(0,i.jsx)(e.code,{children:\"ARG\"}),\" command.\"]}),`\n`,(0,i.jsx)(e.p,{children:\"For example:\"}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-dockerfile\",children:`# Specify the variable you need\nARG RAILWAY_SERVICE_NAME\n# Use the varible\nRUN echo $RAILWAY_SERVICE_NAME\n`})}),`\n`,(0,i.jsx)(e.p,{children:\"Be sure to declare your environment variables in the stage they are required in:\"}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-dockerfile\",children:`FROM node\n\nARG RAILWAY_ENVIRONMENT\n`})}),`\n`,(0,i.jsxs)(e.h2,{id:\"cache-mounts\",children:[(0,i.jsx)(e.a,{href:\"#cache-mounts\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Cache Mounts\"]}),`\n`,(0,i.jsx)(e.p,{children:\"Railway supports cache mounts in your Dockerfile in the following format:\"}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-plaintext\",children:`--mount=type=cache,id=s/\u003cservice id\u003e-\u003ctarget path\u003e,target=\u003ctarget path\u003e\n`})}),`\n`,(0,i.jsxs)(e.p,{children:[\"Replace \",(0,i.jsx)(e.code,{children:\"\u003cservice id\u003e\"}),\" with the id of the service.\"]}),`\n`,(0,i.jsxs)(e.h3,{id:\"target-path\",children:[(0,i.jsx)(e.a,{href:\"#target-path\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Target Path\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"Unsure of what your target path should be?  Refer to the \",(0,i.jsx)(\"a\",{href:\"https://github.com/railwayapp/nixpacks/tree/main\",target:\"_blank\",children:\"Nixpacks source code\"}),\".  Within the providers directory, find the file that aligns with your respective language or runtime, and check for the variable that indicates the CACHE_DIR.\"]}),`\n`,(0,i.jsx)(e.p,{children:(0,i.jsx)(e.strong,{children:\"Example\"})}),`\n`,(0,i.jsxs)(e.p,{children:[\"As an example, within the \",(0,i.jsx)(\"a\",{href:\"https://github.com/railwayapp/nixpacks/blob/main/src/providers/python.rs#L24\",target:\"_blank\",children:\"python provider definition\"}),\", you can see the \",(0,i.jsx)(e.code,{children:\"PIP_CACHE_DIR\"}),\" is \",(0,i.jsx)(e.code,{children:\"/root/.cache/pip\"}),\".\"]}),`\n`,(0,i.jsx)(e.p,{children:\"So the mount command is specified like this:\"}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-plaintext\",children:`--mount=type=cache,id=s/\u003cservice id\u003e-/root/cache/pip,target=/root/.cache/pip\n`})}),`\n`,(0,i.jsxs)(e.h2,{id:\"docker-compose\",children:[(0,i.jsx)(e.a,{href:\"#docker-compose\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Docker Compose\"]}),`\n`,(0,i.jsx)(e.p,{children:\"Railway doesn't support docker compose at the moment.\"})]})}function R(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,Object.assign({},n,{children:(0,i.jsx)(h,n)})):h(n)}var x=R;return k(I);})();\n;return Component;"},"_id":"guides/dockerfiles.md","_raw":{"sourceFilePath":"guides/dockerfiles.md","sourceFileName":"dockerfiles.md","sourceFileDir":"guides","contentType":"markdown","flattenedPath":"guides/dockerfiles"},"type":"Page","url":"/guides/dockerfiles"},"colorModeSSR":null},"__N_SSP":true},"page":"/[...slug]","query":{"slug":["guides","dockerfiles"]},"buildId":"bOTbrtFVoRMrDtuYyyWLo","isFallback":false,"isExperimentalCompile":false,"gssp":true,"scriptLoader":[]}</script>
+</body>
+
+</html>
