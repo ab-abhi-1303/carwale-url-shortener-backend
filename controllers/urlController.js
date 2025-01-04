@@ -94,3 +94,14 @@ exports.getAllAnalytics = async (req, res) => {
     });
   }
 };
+
+exports.doHeavyOperation = (req, res) => {
+  let total = 0;
+  for (let i = 0; i < 5_000_000; i++) {
+    total++;
+  }
+  return res.status(200).json({
+    status: "success",
+    total: total
+  });
+}
